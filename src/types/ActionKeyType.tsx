@@ -1,0 +1,11 @@
+export type ActionKeyType = 
+  | 'KeyW'
+  | 'KeyS'
+  | 'KeyA'
+  | 'KeyD'
+  | 'Space'
+  | 'Digit1'
+  | 'Digit2'
+  | 'Digit3'
+  | 'Digit4'
+  | 'Digit5'

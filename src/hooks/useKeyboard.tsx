@@ -1,16 +1,5 @@
 import { useEffect, useState } from "react"
-
-type ActionKey = 
-  | 'KeyW'
-  | 'KeyS'
-  | 'KeyA'
-  | 'KeyD'
-  | 'Space'
-  | 'Digit1'
-  | 'Digit2'
-  | 'Digit3'
-  | 'Digit4'
-  | 'Digit5'
+import type { ActionKeyType } from "../types/ActionKeyType"
 
 const ACTIONS_KEYBOARD_MAP = {
   KeyW:   'moveForward',
@@ -41,7 +30,7 @@ export const useKeyboard = () => {
   useEffect(() => {
     const handleKeyDown = (event : KeyboardEvent) => {
       const { code } = event
-      const action = ACTIONS_KEYBOARD_MAP[code as ActionKey] 
+      const action = ACTIONS_KEYBOARD_MAP[code as ActionKeyType] 
       if (action) {
         setActions(prevActions => ({
           ...prevActions,
@@ -52,7 +41,7 @@ export const useKeyboard = () => {
 
     const handleKeyUp = (event : KeyboardEvent) => {
       const { code } = event
-      const action = ACTIONS_KEYBOARD_MAP[code as ActionKey] 
+      const action = ACTIONS_KEYBOARD_MAP[code as ActionKeyType] 
       if (action) {
         setActions(prevActions => ({
           ...prevActions,
