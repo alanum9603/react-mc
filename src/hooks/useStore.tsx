@@ -1,16 +1,19 @@
 import { nanoid } from 'nanoid'
 import { create } from 'zustand'
+import type { StoreStateType } from '../types/StoreStateType'
+import type { PositionType } from '../types/PositionType'
+import type { StoreCubesType } from '../types/StoreCubesType'
 
-export const useStore = create(set => {
-  const initialCubes = [
+export const useStore = create<StoreStateType>((set) => {
+  const initialCubes : StoreCubesType[] = [
     {
       id:       nanoid(),
-      pos:      [1, 1, 1],
+      pos:      [1, 1, 1] as PositionType,
       texture:  'dirt'
     },
     {
       id:       nanoid(),
-      pos:      [1, 1, 1],
+      pos:      [1, 1, 1] as PositionType,
       texture:  'dirt'
     }
   ]
@@ -18,7 +21,17 @@ export const useStore = create(set => {
   return {
     texture:    'dirt',
     cubes:      initialCubes,
-    addCube:    () => {},
+    addCube:    (x : number, y : number, z : number) => {
+      set((state : StoreStateType) => ({
+        cubes: [...state.cubes,
+          {
+            id: nanoid(),
+            texture: state.texture,
+            pos: [x, y, z] as PositionType
+          }
+        ]
+      }))
+    },
     removeCube: () => {},
     setTexture: () => {},
     saveWorld:  () => {},

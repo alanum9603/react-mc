@@ -1,17 +1,11 @@
 import { useStore } from "../hooks/useStore";
+import type { StoreCubesType } from "../types/StoreCubesType";
 import { Cube } from "./Cube";
 
-type CubesType = {
-  id: string, 
-  pos: [x: number, y: number, z: number], 
-  texture: string
-}
-
 export const Cubes = () => {
-  const cubes = useStore(state => state.cubes)
+  const cubes : StoreCubesType[] = useStore(state => state.cubes)
 
-  console.log('CUBES REFERENCE', cubes)
-  return cubes.map(({id, pos, texture} : CubesType) => {
+  return cubes.map(({id, pos, texture} : StoreCubesType) => {
     return (
       <Cube
         key={id}
