@@ -1,0 +1,1 @@
+export type AddCubeFunctionType = (x: number, y: number, z: number) => void 

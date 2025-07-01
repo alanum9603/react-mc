@@ -33,4 +33,31 @@ html, body, #root {
   left: 50%;
   transform: translate(-50%, 50%);
   opacity: .5;
+  z-index: 0;
+}
+
+.texture-selector {
+  display: flex;
+  gap: 5px;
+  background-color: #aaa;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.texture-selector>img {
+  width: 100px;
+  z-index: 100;
+  image-rendering: pixelated;
+  border: #000 3px solid;
+}
+
+.texture-selector.hidden {
+  display: hidden;
+}
+
+.texture-selector>img.selected {
+  border-color: yellow;
 }

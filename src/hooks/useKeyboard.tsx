@@ -23,6 +23,7 @@ export const useKeyboard = () => {
     jump:         false,
     dirt:         false,
     grass:        false, 
+    glass:        false,
     wood:         false,
     log:          false
   })

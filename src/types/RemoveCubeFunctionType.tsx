@@ -1,0 +1,1 @@
+export type RemoveCubeFunctionType = (id: string) => void
